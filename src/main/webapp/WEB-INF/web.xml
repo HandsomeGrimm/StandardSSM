@@ -29,19 +29,21 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
+	
+	
+	<!-- 通过所有URL -->
 	<!-- Map all requests to the DispatcherServlet for handling -->
 	<servlet-mapping>
 		<servlet-name>springDispatcherServlet</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 防止Spring内存溢出监听器 -->
-    <listener>
+	<listener>
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
 
-    <!-- 解决工程编码过滤器 -->
+	<!-- 解决工程编码过滤器 -->
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
