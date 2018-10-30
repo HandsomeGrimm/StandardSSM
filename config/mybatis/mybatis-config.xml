@@ -6,7 +6,11 @@
 
 	<!-- resultType别名配置 -->
 	<typeAliases>
-
+		
+		<!-- 
+			适用typeAlias须对所有PO都分别设置别名；
+			使用package name设置别名后对包内所有PO都适用，别名为该类首字母小写。
+		 -->
 		<package name="grimm.study.model"/>
 <!-- 		<typeAlias type="grimm.study.model.User" alias="user" /> -->
 	</typeAliases>

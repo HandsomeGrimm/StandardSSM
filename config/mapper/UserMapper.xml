@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper    namespace="grimm.study.mapper.UserMapper">
-
+	
+	<sql id="Base_user_column">
+		id,name,email,passwd
+	</sql>
+	<!-- 
+		parameterType：入参
+		resultType：返回参数，mybatis配置中设置别名后课使用别名，否则须写上全类名
+	 -->
 	<select id="selectUserByID" parameterType="java.lang.Long"  resultType="user">
-			select  id,name,email,passwd
+			select  <include refid="Base_user_column"></include>
 			from user
 			where  id=#{id}
 	</select>
