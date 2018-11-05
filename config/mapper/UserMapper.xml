@@ -5,6 +5,10 @@
 	<sql id="Base_user_column">
 		id,name,email,passwd
 	</sql>
+	
+	<sql id="Base_user_info">
+		id,serve_Days,date_Time,week
+	</sql>
 	<!-- 
 		parameterType：入参
 		resultType：返回参数，mybatis配置中设置别名后课使用别名，否则须写上全类名
@@ -13,6 +17,12 @@
 			select  <include refid="Base_user_column"></include>
 			from user
 			where  id=#{id}
+	</select>
+	
+	<select id="selectUserInfo" parameterType="grimm.study.vo.UserInfoVo"  resultType="user">
+			select  <include refid="Base_user_info"></include> 
+			from user 
+			where id=#{id} AND password=#{passWord}
 	</select>
 
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import grimm.study.model.User;
 import grimm.study.service.UserService;
 import grimm.study.vo.MessageVo;
 
@@ -25,5 +26,11 @@ public class UserController {
 	@ResponseBody
 	public MessageVo getUsers(@PathVariable Long id) {
 		return userService.getUsersByID(id);
+	}
+
+	@RequestMapping(value = "/user/login", method = RequestMethod.POST)
+	@ResponseBody
+	public MessageVo getUserInfo(User user) {
+		return userService.getUserInfo(user);
 	}
 }

@@ -1,5 +1,6 @@
 package grimm.study.service;
 
+import grimm.study.model.User;
 import grimm.study.vo.MessageVo;
 
 /**
@@ -10,4 +11,11 @@ import grimm.study.vo.MessageVo;
  */
 public interface UserService {
 	public MessageVo getUsersByID(Long id);
+
+	/**
+	 * @param uiv
+	 * @return
+	 */
+	public MessageVo getUserInfo(User user);
+
 }

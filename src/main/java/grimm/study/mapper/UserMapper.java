@@ -1,6 +1,7 @@
 package grimm.study.mapper;
 
 import grimm.study.model.User;
+import grimm.study.vo.UserInfoVo;
 
 /**
  * @author HandsomeGrimm
@@ -11,4 +12,6 @@ import grimm.study.model.User;
 
 public interface UserMapper {
 	User selectUserByID(Long id);
+
+	User selectUserInfo(UserInfoVo userInfoVo);
 }
