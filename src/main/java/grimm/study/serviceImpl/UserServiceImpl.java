@@ -8,6 +8,7 @@ import grimm.study.model.User;
 import grimm.study.service.UserService;
 import grimm.study.vo.MessageVo;
 import grimm.study.vo.UserInfoVo;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author HandsomeGrimm
@@ -16,6 +17,7 @@ import grimm.study.vo.UserInfoVo;
  * @time 上午9:45:08
  */
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
 
 	@Autowired(required = true)
@@ -25,12 +27,13 @@ public class UserServiceImpl implements UserService {
 	public MessageVo getUsersByID(Long id) {
 		MessageVo messageVo = new MessageVo();
 		try {
-			messageVo.setCode(0);
+			messageVo.setCode("0");
 			messageVo.setInfo("success");
 			messageVo.setData(userMapper.selectUserByID(id));
 			return messageVo;
 		} catch (Exception e) {
-			messageVo.setCode(1);
+			log.info("=========" + e.getMessage());
+			messageVo.setCode("1");
 			messageVo.setInfo("failed");
 			messageVo.setData(e.getMessage());
 			return messageVo;
@@ -46,17 +49,20 @@ public class UserServiceImpl implements UserService {
 		MessageVo messageVo = new MessageVo();
 		if (uiv.getType().equals(0)) {
 			try {
-				messageVo.setCode(0);
+				messageVo.setCode("0");
 				messageVo.setInfo("success");
-				messageVo.setData(userMapper.selectUserInfo(uiv));
-				return messageVo;
-			} catch (Exception e) {
+				messageVo.setData("");
 
-				messageVo.setCode(1);
+				userMapper.selectUserInfo(uiv);
+
+			} catch (Exception e) {
+				log.info("========" + e.getMessage());
+				messageVo.setCode("1");
 				messageVo.setInfo("failed");
 				messageVo.setData(e.getMessage());
-				return messageVo;
 			}
+
+			return messageVo;
 		} else {
 			return null;
 		}

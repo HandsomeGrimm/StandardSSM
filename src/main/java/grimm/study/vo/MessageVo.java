@@ -13,7 +13,7 @@ public class MessageVo {
 //	private static final Integer SUCCESS = 0;
 //	private static final Integer FAILED = 1;
 
-	private Integer code;
+	private String code;
 
 	private String info;
 
@@ -23,7 +23,7 @@ public class MessageVo {
 
 	}
 
-	public MessageVo(Integer code, String info, Object data) {
+	public MessageVo(String code, String info, Object data) {
 		this.code = code;
 		this.info = info;
 		this.data = data;
